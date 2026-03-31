@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Sense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Business Stock Dashboard</p>
+        <h1>Stock Sense</h1>
+        <p class="hero-text">
+          Explore live-style stock information, understand key financial terms, and view a simple
+          business trend prediction from recent prices.
+        </p>
+      </div>
+
+      <div class="hero-aside">
+        <p class="aside-label">Tracking</p>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">Switch To Light Mode</button>
+        <div class="hero-symbol-wrap">
+          <p class="highlight-symbol" id="hero-symbol">TCS</p>
+          <p class="hero-status" id="status-pill">Ready</p>
+        </div>
+        <p class="highlight-note" id="source-note">
+          Dynamic values refresh automatically and fall back smoothly when live data is unavailable.
+        </p>
+        <p class="updated-note" id="updated-note">Last updated: waiting for data</p>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="panel info-panel" aria-labelledby="stock-info-title">
+        <div class="panel-heading">
+          <div>
+            <p class="section-tag">Section 1</p>
+            <h2 id="stock-info-title">Stock Information</h2>
+          </div>
+        </div>
+
+        <div class="selector-row">
+          <label class="selector-label" for="stock-select">Select a stock</label>
+          <select id="stock-select" class="stock-select">
+            <option value="TCS">TCS</option>
+            <option value="RELIANCE">Reliance Industries</option>
+            <option value="INFY">Infosys</option>
+          </select>
+        </div>
+
+        <div class="stock-summary">
+          <article class="summary-card summary-card-wide">
+            <p class="label">Company Name</p>
+            <h3 id="company-name">Loading...</h3>
+          </article>
+          <article class="summary-card">
+            <p class="label">Current Price</p>
+            <h3 id="stock-price">--</h3>
+          </article>
+          <article class="summary-card">
+            <p class="label">Market Sector</p>
+            <h3 id="stock-sector">Loading...</h3>
+          </article>
+        </div>
+
+        <article class="description-card">
+          <p class="label">Brief Company Description</p>
+          <p id="company-description">Loading company details...</p>
+        </article>
+      </section>
+
+      <section class="panel trend-panel" aria-labelledby="trend-title">
+        <div class="panel-heading">
+          <div>
+            <p class="section-tag">Section 3</p>
+            <h2 id="trend-title">Prediction / Trend</h2>
+          </div>
+        </div>
+
+        <article class="trend-card" id="trend-card">
+          <div class="trend-meta">
+            <p class="trend-icon" id="trend-icon" aria-hidden="true">~</p>
+            <div>
+              <p class="label">Trend Result</p>
+              <h3 id="trend-label">Analyzing...</h3>
+            </div>
+          </div>
+          <p id="trend-reason">
+            Comparing recent stock prices to generate a simple trend classification.
+          </p>
+        </article>
+
+        <div class="mini-chart" id="mini-chart" aria-label="Recent price chart">
+          <div class="chart-head">
+            <p>Recent Price Movement</p>
+            <span>5-point view</span>
+          </div>
+          <svg class="chart-svg" id="chart-svg" viewBox="0 0 360 220" preserveAspectRatio="none" role="img" aria-label="Stock trend chart">
+            <defs>
+              <linearGradient id="chartAreaGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#15c39a" stop-opacity="0.34"></stop>
+                <stop offset="100%" stop-color="#15c39a" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <path id="chart-area" class="chart-area"></path>
+            <path id="chart-line" class="chart-line"></path>
+            <g id="chart-grid"></g>
+            <g id="chart-points"></g>
+          </svg>
+        </div>
+
+        <div class="price-strip" id="price-strip" aria-label="Recent prices"></div>
+      </section>
+
+      <section class="panel literacy-panel" aria-labelledby="literacy-title">
+        <div class="panel-heading">
+          <div>
+            <p class="section-tag">Section 2</p>
+            <h2 id="literacy-title">Financial Literacy</h2>
+          </div>
+        </div>
+
+        <div class="literacy-grid" id="literacy-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built with HTML, CSS, and JavaScript for a stock information and prediction project.</p>
+      <p>Dynamic stock values with educational terms and simple trend logic.</p>
+    </footer>
+  </div>
+
+  <script src="script-live.js"></script>
+</body>
+</html>
